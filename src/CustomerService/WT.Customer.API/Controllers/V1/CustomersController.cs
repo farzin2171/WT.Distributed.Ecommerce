@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using MassTransit;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -7,7 +8,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WT.Customer.API.Contract.V1;
+using WT.Customer.API.Contract.V1.Requests;
 using WT.Customer.Services.Customer;
+using WT.Ecommerce.Domain.MessagingModels;
 
 namespace WT.Customer.API.Controllers.V1
 {
@@ -15,13 +18,16 @@ namespace WT.Customer.API.Controllers.V1
     [Produces("application/json")]
     //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class CustomersController : ControllerBase
     {
         private ICustomerInformationService _customerInformationService;
+        private readonly IPublishEndpoint _publishEndpoint;
 
-        public ValuesController(ICustomerInformationService customerInformationService)
+
+        public CustomersController(ICustomerInformationService customerInformationService, IPublishEndpoint publishEndpoint)
         {
             _customerInformationService = customerInformationService;
+            _publishEndpoint = publishEndpoint;
         }
         /// <summary>
         /// Creates new customer in the system
@@ -30,7 +36,7 @@ namespace WT.Customer.API.Controllers.V1
         /// 
         /// Sample request:
         ///
-        ///     Post /api/v1/CustomerInformations
+        ///     Post /api/v1/Customers
         ///
         /// </remarks>
         /// <response code="401">The JWT is missing or incorrect.</response>  
@@ -39,11 +45,15 @@ namespace WT.Customer.API.Controllers.V1
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
-        [HttpGet(ApiRoutes.SampleApi.GetAll)]
-        public async Task<IActionResult> Get()
+        [HttpPost(ApiRoutes.CustomersApi.CreateCustomer)]
+        public async Task<IActionResult> Create(CreateCustomerRequest request)
         {
-            var t= await _customerInformationService.CreateCustomerAsync("farzin", "faghirnavaz", "ef@gmail.com", "34555");
-            return Ok();
+            var newCustomerId = await _customerInformationService.CreateCustomerAsync(request.FirstName, request.LastName, request.Email, request.PhoneNumber);
+            await _publishEndpoint.Publish<CustomerMessage>(new CustomerMessage
+            {
+                Id = newCustomerId
+            });
+            return Ok(newCustomerId);
         }
     }
 }

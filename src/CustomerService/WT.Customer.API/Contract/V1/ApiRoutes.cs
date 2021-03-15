@@ -7,10 +7,12 @@ namespace WT.Customer.API.Contract.V1
         private const string Version = "v1";
         private const string Base = Root + "/" + Version;
 
-        public static class SampleApi
+        public static class CustomersApi
         {
-            public const string GetAll = Base + "/Samples";
-            public const string Create = Base + "/Samples";
+            public const string GetAllCustomerAddress = Base + "/Customers/{CustomerId}/Address";
+            public const string CreateCustomer = Base + "/Customers";
+            public const string CreateAddress = Base + "/Customers/{CustomerId}/Address";
+
 
         }
     }

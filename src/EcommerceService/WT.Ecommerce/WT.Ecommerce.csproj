@@ -45,7 +45,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WT.Customer.Services\WT.Customer.Services.csproj" />
+    <ProjectReference Include="..\WT.Ecommerce.Services\WT.Ecommerce.Services.csproj" />
   </ItemGroup>
 
 </Project>

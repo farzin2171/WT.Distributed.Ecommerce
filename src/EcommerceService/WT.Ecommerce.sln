@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WT.Customer.API", "WT.Customer.API\WT.Customer.API.csproj", "{B98D6415-5531-43CF-8A18-0834635EE04E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WT.Ecommerce.Domain", "..\Models\WT.Ecommerce.Domain\WT.Ecommerce.Domain.csproj", "{B7AFEF3A-7288-4CEB-A122-59C62169585D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WT.Ecommerce.Domain", "..\Models\WT.Ecommerce.Domain\WT.Ecommerce.Domain.csproj", "{B7AFEF3A-7288-4CEB-A122-59C62169585D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WT.Ecommerce.Services", "WT.Ecommerce.Services\WT.Ecommerce.Services.csproj", "{20950021-474C-426F-9618-4ED72602EDFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WT.Customer.Services", "WT.Customer.Services\WT.Customer.Services.csproj", "{20950021-474C-426F-9618-4ED72602EDFE}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "WT.Ecommerce.Database", "WT.Ecommerce.Database\WT.Ecommerce.Database.sqlproj", "{BD31DE85-1A2C-4A08-A2B6-C2CF22D54CF1}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "WT.Customer.Database", "WT.Customer.Database\WT.Customer.Database.sqlproj", "{BD31DE85-1A2C-4A08-A2B6-C2CF22D54CF1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WT.Ecommerce.Data", "WT.Ecommerce.Data\WT.Ecommerce.Data.csproj", "{7041E61F-089D-4838-9980-3CE54ACA81E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WT.Customer.Data", "WT.Customer.Data\WT.Customer.Data.csproj", "{7041E61F-089D-4838-9980-3CE54ACA81E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WT.Ecommerce", "WT.Ecommerce\WT.Ecommerce.csproj", "{108B380E-D44E-41F5-95F7-E6AC07F77210}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B98D6415-5531-43CF-8A18-0834635EE04E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B98D6415-5531-43CF-8A18-0834635EE04E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B98D6415-5531-43CF-8A18-0834635EE04E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B98D6415-5531-43CF-8A18-0834635EE04E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B7AFEF3A-7288-4CEB-A122-59C62169585D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B7AFEF3A-7288-4CEB-A122-59C62169585D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7AFEF3A-7288-4CEB-A122-59C62169585D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -41,6 +37,10 @@ Global
 		{7041E61F-089D-4838-9980-3CE54ACA81E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7041E61F-089D-4838-9980-3CE54ACA81E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7041E61F-089D-4838-9980-3CE54ACA81E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{108B380E-D44E-41F5-95F7-E6AC07F77210}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{108B380E-D44E-41F5-95F7-E6AC07F77210}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{108B380E-D44E-41F5-95F7-E6AC07F77210}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{108B380E-D44E-41F5-95F7-E6AC07F77210}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
